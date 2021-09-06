@@ -32,7 +32,9 @@ django-admin startproject learning_log .
 的首字母缩写
 
 # 创建数据库
+```
 python manage.py migrate
+```
 会创建一个 db.sqlite3 文件
 SQLite 是一种使用单个文件的数据库，是编写简单应用程序的理想选择，因为它让你不用太关注数据库管理问题。
 
