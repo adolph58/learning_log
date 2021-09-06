@@ -60,3 +60,23 @@ python manage.py startapp learning_logs
 learning_logs 目录，其中最重要的文件是 models.py、admin.py 和 views.py。
 我们将使用 models.py 来定义要在应用程序中管理的数据
 
+## 让 Django 修改数据库
+```
+python manage.py makemigrations learning_logs
+```
+命令 makemigrations 让 Django 确定该如何修改数据库，使其能够存储与前面定义的新模型相关联的数据。
+输出表明 Django 创建了一个名为 0001_initial.py 的迁移文件，这个文件将在数据库中为模型 Topic 创建一个表。
+
+下面应用这种迁移，让 Django 替我们修改数据库：
+```
+python manage.py migrate
+```
+这个命令的大部分输出与首次执行命令 migrate 的输出相同。
+每当需要修改“学习笔记”管理的数据时，都采取如下三个步骤：
+修改 models.py，对 learning_logs 调用 makemigrations，以及让 Django 迁移项目。
+
+## Django 管理网站
+### 创建超级用户
+```
+python manage.py createsuperuser
+```
