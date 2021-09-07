@@ -84,3 +84,31 @@ username:admin
 
 password:123456
 
+## Django shell
+输入一些数据后，就可以通过交互式终端会话以编程方式查看这些数据了。这种交互式环境称为 Django shell，
+是测试项目和排除故障的理想之地。下面是一个交互式 shell 会话示例：
+```
+(venv) ~/.../python/learning_log >>> python manage.py shell                                                                                                         ±[●●●][master]
+Python 3.9.6 (default, Jun 30 2021, 10:22:16)
+[GCC 11.1.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from learning_logs.models import Topic
+>>> Topic.objects.all()
+<QuerySet [<Topic: Chess>, <Topic: Rock Climbing>]>
+>>> topics = Topic.objects.all()
+>>> for topic in topics:
+...   print(topic.id, topic)
+...
+1 Chess
+2 Rock Climbing
+>>> t = Topic.objects.get(id=1)
+>>> t.text
+'Chess'
+>>> t.date_added
+datetime.datetime(2021, 9, 6, 7, 39, 41, 252224, tzinfo=<UTC>)
+>>> t.entry_set.all()
+<QuerySet [<Entry: Entry object (1)>]>
+```
+按 Ctrl + D 退出 shell。如果是 Windows 系统，应按 Ctrl + Z，再按回车键。
+
