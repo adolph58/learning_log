@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topics</title>
+</head>
+<body>
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+    <p>Topic： {{ topic }}</p>
+
+    <p>Entries:</p>
+    <ul>
+        {% for entry in entries %}
+            <li>
+                <!--竖线 | 表示模板过滤器，即对模板变量的值进行修改的函数-->
+                <!--'M d, Y H:i' 以类似这样的格式显示时间戳：January 1, 2018 23:00-->
+                <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+                <!--过滤器 linebreaks 将包含换行符的长条目转换为浏览器能够理解的格式，以免显示为不间断的文本块-->
+                <p>{{ entry.text|linebreaks }}</p>
+            </li>
+        {% empty %}}
+            <li>There are no entries for this topic yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
+</body>
+</html>
