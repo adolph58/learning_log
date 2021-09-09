@@ -52,7 +52,7 @@ python manage.py runserver
 python manage.py runserver 8001
 ```
 
-# 创建应用程序
+# 创建应用程序 learning_logs
 ```
 python manage.py startapp learning_logs
 ```
@@ -112,3 +112,7 @@ datetime.datetime(2021, 9, 6, 7, 39, 41, 252224, tzinfo=<UTC>)
 ```
 按 Ctrl + D 退出 shell。如果是 Windows 系统，应按 Ctrl + Z，再按回车键。
 
+# 创建应用程序 users
+```
+python manage.py startapp users
+```
