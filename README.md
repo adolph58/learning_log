@@ -116,3 +116,8 @@ datetime.datetime(2021, 9, 6, 7, 39, 41, 252224, tzinfo=<UTC>)
 ```
 python manage.py startapp users
 ```
+
+# 安装 django-bootstrap4
+```
+pip install django-bootstrap4
+```
